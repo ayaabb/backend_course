@@ -6,6 +6,7 @@ def sieve_of_eratosthenes(n):
     # if it is not divided, add it to prime list and remove it from main list
     # iterate over the main list and delete every num is divided by the new prime num
     # then repeat
+
     for i in range(len(main_list)):
         for p in prime_list:
             if main_list[i] != -1 and main_list[i] % p == 0:
@@ -24,3 +25,4 @@ def sieve_of_eratosthenes(n):
 if __name__ == '__main__':
     n = int(input("Enter a number to find the prime numbers between 2 and it: "))
     sieve_of_eratosthenes(n)
+
