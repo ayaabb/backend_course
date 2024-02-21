@@ -37,7 +37,7 @@ def fight(moves, fight_type, num_rounds):
 
 
 if __name__ == '__main__':
-    moves = {1: [2, 4], 2: [3], 3: [1, 4], 4: [2]}  # key --> winning move  , value --> losing moves to the key move
+    moves = {1: [2, 4], 2: [3], 3: [1, 4], 4: [2]}   # key --> winning move  , value --> losing moves to the key move
     num_rounds = {"Championship": 6, "Regular": 3}
     fight_type = input("Choose which type of fight you want ?\n1->regular\n2->championship\n")
     while not fight_type.isdigit() or (int(fight_type) != 1 and int(fight_type) != 2):
