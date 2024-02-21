@@ -1,3 +1,4 @@
+import copy
 class User:
     def __init__(self, name, gender, age, profession, tv_show, favorite_food):
         self.name = name
@@ -23,16 +24,16 @@ if __name__ == '__main__':
         name = input(f'enter your name: ')
         gender = int(input(f'enter your gender(1 for Male,2 for Female): '))
         while gender != 1 and gender != 2:
-            gender = int(input(f'wrong choice ,enter your gender again(1 for Male,2 for Female): '))
+            gender = int(input(f'Invalid input ,enter your gender again(1 for Male,2 for Female): '))
         age = int(input(f'enter your age ,it has to be between {min(ages)} and {max(ages)}: '))
         while age > max(ages) or age < min(ages):
-            age = int(input(f'wrong choice, enter your age again,it has to be between {min(ages)} and {max(ages)}: '))
+            age = int(input(f'Invalid input, enter your age again,it has to be between {min(ages)} and {max(ages)}: '))
 
         profession = input(f'enter your profession: ')
         series = input(f'enter your series: ')
         food = input(f'enter your favorite food ,it has to be {foods}: ')
         while food not in foods:
-            food = input(f'wrong choice,enter your favorite food again,it has to be {foods}: ')
+            food = input(f'Invalid input,enter your favorite food again,it has to be {foods}: ')
         for u in users:
             if gender != u.gender:
                 if u.age > age and gender == 2:
