@@ -1,4 +1,4 @@
-class code_decriptor:
+class code_deciphers:
     def __init__(self, my_text, keys):
         self.my_text = my_text
         self.keys = keys
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     my_text1 = my_text1.replace(':', '')
     my_text1 = my_text1.split()
 
-    my_code_decriptor = code_decriptor(my_text1, keys1)
+    my_code_decriptor = code_deciphers(my_text1, keys1)
     message = ""
     for char in my_code_decriptor:
         message += char
