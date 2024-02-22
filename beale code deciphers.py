@@ -28,6 +28,21 @@ def generate_keys(text, message):
                 break
 
 
+
+# I implemented another generator for keys in another way,I implemented two generators because I don't know if it's clever to use break after yield..
+#  I don't know which way is better or more efficient , I would be glad if you could tell me that :)
+
+# def find_index(text, char):
+#     for i in range(len(text)):
+#         if text[i][0] == char:
+#             yield i
+#
+#
+# def generate_keys(text, message):
+#     for m in message:
+#         yield next(find_index(text, m))
+
+
 if __name__ == '__main__':
     my_text1 = open("MyText1.txt", "r")
     my_text1 = my_text1.read()
