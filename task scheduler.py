@@ -22,7 +22,8 @@ def ask_for_task():
             return task(task_name, int(task_duration))
         elif answer == 'yes':
             day, start_hour = input("Enter a specific day and a starting hour : ").split()
-            while not day.isdigit() or not start_hour.isdigit() or int(task_duration) + int(start_hour) > 9:
+            while not day.isdigit() or not start_hour.isdigit() or int(task_duration) + int(start_hour) > 9 or int(
+                    day) > 5:
                 day, start_hour = input("Invalid input try again,enter a specific day and a starting hour : ").split()
             return task(task_name, int(task_duration), int(day), int(start_hour))
 
@@ -33,12 +34,18 @@ def find_free_time(task, days):
     for j in range(len(days)):
         c = 0
         for i in range(len(days[j]) - 1):
+            if task.duration == 1:
+                if days[j][i] is None:
+                    return j + 1, i + 1
+                if i == len(days[j]) - 2 and days[j][i + 1] is None:
+                    return j + 1, i + 2
             if days[j][i] is None and days[j][i + 1] is None:
                 c += 1
                 if c == task.duration - 1:
-                    return j + 1, c - i
+                    return j + 1, c - i if c > i else i - c + 2
             else:
                 c = 0
+
     return -1, -1
 
 
@@ -77,6 +84,7 @@ def check_not_populated(task, days):
 
 def task_scheduler():
     days = [[None for _ in range(8)] for _ in range(5)]
+
     task = ask_for_task()
     while task:
         if task.day is not None and task.starting_hour is not None:
@@ -118,11 +126,13 @@ def print_schedule(days):
         print(x, end="   ")
     print("\n")
     for j in range(len(days)):
-        print(f'Day number {j + 1} :   ', end=" ")
+        print(f'Day number {j + 1} :  ', end=" ")
         for i in range(len(days[j])):
             if days[j][i]:
-                print(f'{days[j][i].name}',end='   ')
+                print(f'{days[j][i].name}', end='  ')
             else:
-                print("   ", end="")
+                print(" -- ", end="")
         print("\n")
+
+
 task_scheduler()
