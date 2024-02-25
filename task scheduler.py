@@ -101,7 +101,6 @@ def task_scheduler():
                 else:
                     print("ok we will find another spot")
                     free_day, free_hour = find_free_time(task, days)
-                    print(free_day, free_hour)
                     if free_day != -1 and free_hour != -1:
                         populate(task, free_day, free_hour, days)
                     else:
