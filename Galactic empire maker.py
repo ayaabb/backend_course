@@ -32,9 +32,11 @@ def negotiation(alien_list, materials):
         print(f'I failed to convince 70% of total alien groups')
 
 
-
+### why use ___name__?
 if __name__ == '__main__':
+    ### this is ok for placeholder, when submitting final project try to make it realistic
     materials = ['A', 'B', 'C', 'D', 'S', 'Y', 'Z', 'E', 'P', 'O', 'M', 'X', 'T', 'R', 'V', 'H', 'W', 'Q', 'U', 'K']
+    ### GREAT! dynamicly created. 10 points!
     alien_delegation_list = []
     for i in range(4):
         mat_list = []
