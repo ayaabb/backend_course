@@ -82,10 +82,11 @@ if __name__ == '__main__':
     voters = []  #I chose list for the voters because it ensures the order of the voters by their arriving time
     # I could choose queue for the voters because we want first arrived first served
     # and queue ensures that but I need the voters for another positions
-    list_candidates = []
+    list_candidates = [] #I chose list for the candidates and positions because I just want to store them and iterate over them
+    positions = []
     names_pos = ["President", "Minster of Education", "Minister of Economy"]
     names_cand = ["SAMEER", "ADAM", "AYA", "LAELA"]
-    positions = []
+
     for i in range(50):
         voters.append(voter(names.get_full_name(), random.randint(16, 70), "Kafr Kanna"))
     for i in range(4):
