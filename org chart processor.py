@@ -43,5 +43,5 @@ for d in dict_:
     print(
         f'The number of the people with “developer” in their title is {count_workers(dict_[d], "CEO", 0, 0, "Developer")}')
     print('The names of the departments:')
-    print(f'The number of the departments is {department_counter(dict_[d], 0)}')
+    print(f'The number of the departments is {department_counter(dict_[d], 0)}\n')
     i += 1
