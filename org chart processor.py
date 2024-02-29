@@ -1,18 +1,18 @@
 import json
 
 
-def org_chart_processor(dict_org, chief_pos, found_chief, counter, position):
+def workers_counter(dict_org, chief_pos, found_chief, counter, position):
     if found_chief == 0 and chief_pos in dict_org['name']:
 
-        counter = org_chart_processor(dict_org, chief_pos, 1, counter, position)
+        counter = workers_counter(dict_org, chief_pos, 1, counter, position)
     else:
         for x in dict_org['subordinates']:
             if found_chief == 0:
                 if chief_pos in x['name']:
-                    counter = org_chart_processor(x, chief_pos, 1, counter, position)
+                    counter = workers_counter(x, chief_pos, 1, counter, position)
             else:
                 if 'subordinates' in x:
-                    counter = org_chart_processor(x, chief_pos, found_chief, counter, position)
+                    counter = workers_counter(x, chief_pos, found_chief, counter, position)
                 else:
                     if position != '':
                         if position in x['name']:
@@ -25,10 +25,10 @@ def org_chart_processor(dict_org, chief_pos, found_chief, counter, position):
 def department_counter(dict_org, counter):
     for x in dict_org['subordinates']:
         if 'subordinates' in x:
-            counter =department_counter(x, counter)
+            counter = department_counter(x, counter)
         else:
             counter += 1
-            print(f"{x['name'].split()[0] } Department ")
+            print(f"{x['name'].split()[0]} Department ")
             return counter
     return counter
 
@@ -38,9 +38,10 @@ j = j.read()
 dict_ = json.loads(j)
 i = 1
 for d in dict_:
-    print(f'Company {i}\nThe number of the workers is {org_chart_processor(dict_[d], "CEO", 0, 0,"")}')
-    print(f'The number of the workers under CTO is {org_chart_processor(dict_[d], "CTO", 0, 0,"")}')
-    print(f'The number of the people with “developer” in their title is {org_chart_processor(dict_[d], "CEO", 0, 0,"Developer")}')
+    print(f'Company {i}\nThe number of the workers is {workers_counter(dict_[d], "CEO", 0, 0, "")}')
+    print(f'The number of the workers under CTO is {workers_counter(dict_[d], "CTO", 0, 0, "")}')
+    print(
+        f'The number of the people with “developer” in their title is {workers_counter(dict_[d], "CEO", 0, 0, "Developer")}')
     print('The names of the departments:')
-    print(f'The number of the departments is {department_counter(dict_[d],0)}')
-    i+=1
+    print(f'The number of the departments is {department_counter(dict_[d], 0)}\n')
+    i += 1
