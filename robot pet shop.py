@@ -1,5 +1,6 @@
 import random
-import names
+import names ### err, no names module. in real life i wouldnot keep checking
+
 
 
 class robot:
@@ -17,7 +18,7 @@ class pet_robot(robot):
         self.animal_type = animal_type
         self.status = status
         if status == 'in repair' or status == 'to be shipped':
-            self.days_for_status = random.randint(1, 3)
+            self.days_for_status = random.randint(1, 3) ### magic numbers
         else:
             self.days_for_status = 0
         super().__init__(name, id, battery_type)
@@ -48,7 +49,7 @@ class robot_pet_shop:
         for p in self.pets:
             if p.status == status:
                 if price_range[1] != 0:
-                    if price_range[0] <= p.price <= price_range[1]:
+                    if price_range[0] <= p.price <= price_range[1]: ### magic numbers
                         print(p.name)
                 else:
                     print(p.name)
@@ -62,9 +63,10 @@ class robot_pet_shop:
     def sell(self, pet):
         self.balance += pet.price
         pet.status = 'to be shipped'
-        pet.days_for_status = random.randint(1, 3)
+        pet.days_for_status = random.randint(1, 3) ### magic numbers
 
     def print_details(self, name_or_id):
+        ### good check, but what about the chck if the num is in range?
         if isinstance(name_or_id, int):
             pet = self.pets[name_or_id - 1]
 
@@ -102,7 +104,7 @@ our_shop = robot_pet_shop()
 for i in range(10):
     our_shop.pets.append(pet_robot(animal_names[i].split()[0], i + 1, random.choice(battery_type_list),
                                    random.choice(main_material_list),
-                                   random.randint(50, 200), random.randint(2, 10),
+                                   random.randint(50, 200), random.randint(2, 10), ### magic numbers
                                    animal_type_list[int(animal_names[i].split()[1])], random.choice(status_list)))
     our_shop.name_to_id[animal_names[i].split()[0]] = i
     if our_shop.pets[i].status == 'sold':
@@ -111,7 +113,8 @@ for i in range(10):
 for i in range(3):
     our_shop.employees.append(
         employee_robot(names.get_full_name(), i + 1, random.choice(battery_type_list), random.randint(5, 20)))
-
+### no interactivty
+## long code ,difficulty to read - break it down to functiuons
 our_shop.print_pets_by_status('for sale', (0, 0))
 our_shop.print_pets_by_status('in repair', (0, 0))
 our_shop.print_pets_by_status('for sale', (50, 100))
