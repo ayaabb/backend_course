@@ -1,0 +1,33 @@
+{
+  "Asteroid Field":
+    {"evade": {
+      "health": [-15, -1],
+      "fuel": [-30, -20]
+        }
+    ,
+
+    "fire": {
+      "health": [-30, -10],
+      "fuel": [-20, -10]
+    }
+    }
+
+  ,
+  "Space Pirates":  {
+    "fight": {
+      "health": [-40, -20],
+      "fuel": [-20, -10]
+    } ,
+    "negotiate": {
+      "fuel": [10, 20]
+    }
+  } ,
+  "Alien Diplomacy":  {
+    "health": [10, 20],
+    "fuel": [15, 25]
+  }
+   ,
+  "Black Hole": {
+    "health": [-60, -40]
+  }
+}

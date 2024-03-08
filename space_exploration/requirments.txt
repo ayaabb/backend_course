@@ -1,0 +1,22 @@
+pycharm version 2023.3.4
+python version 3.12
+pip version 24
+Windows system
+
+required libraries:
+json
+random
+time
+requests
+BeautifulSoup
+
+required files:
+events_options.json
+
+required url for spaceships names:
+"https://en.wikipedia.org/wiki/List_of_crewed_spacecraft"
+
+** to run the project you need to run this commands:
+1_ cd {path of "space_exploration" file project }
+2_ python __main__.py
+3_ {path of "events_options.json" file} (for Enter the path of the events file)
