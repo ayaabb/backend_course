@@ -7,8 +7,8 @@ def calculate_danger(asteroids, A=1, B=1, C=1):  # calculating the danger index 
     return danger_index
 
 
-def ask_for_ABC_values():  # asking the user for 3 coefficients and checking if it is a natural number
-    A = input("Choose 3 natural numbers to calculate the danger index :\nA=")
+def ask_for_ABC_values(week_number):  # asking the user for 3 coefficients and checking if it is a natural number
+    A = input(f"Choose 3 natural numbers to calculate the danger index for week{week_number}:\nA=")
     while not A.isdigit():
         A = input("Invalid input,choose a number\nA= ")
     B = input('B=')
